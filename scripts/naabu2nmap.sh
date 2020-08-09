@@ -3,12 +3,10 @@
 TARGETSFILE="$1"
 PORTSFILE="$2"
 
-if [ -z "$1" ]
-  then
+if [ -z "$1" ]; then
     TARGETSFILE="naabu_output_targets.txt"
 fi
-if [ -z "$2" ]
-  then
+if [ -z "$2" ]; then
     PORTSFILE="naabu_output_ports.txt"
 fi
 
@@ -34,4 +32,5 @@ ports=`cat $PORTSFILE | tr '\n' ','`
 echo "Running nmap service scan on found results."
 echo "Executing nmap -iL $TARGETSFILE -p ${ports:0:-1} -sV"
 
-nmap -iL $TARGETSFILE -p ${ports:0:-1} -sV
+nmap -iL $TARGETSFILE -p ${ports:0:-1} -sV -Pn
+rm $TARGETSFILE $PORTSFILE
