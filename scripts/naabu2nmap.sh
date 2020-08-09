@@ -29,8 +29,5 @@ ports=`cat $PORTSFILE | tr '\n' ','`
 
 # Running nmap on found results.
 
-echo "Running nmap service scan on found results."
-echo "Executing nmap -iL $TARGETSFILE -p ${ports:0:-1} -sV"
-
 nmap -iL $TARGETSFILE -p ${ports:0:-1} -sV -Pn
 rm $TARGETSFILE $PORTSFILE
