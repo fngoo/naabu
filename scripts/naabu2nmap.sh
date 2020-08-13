@@ -29,5 +29,5 @@ ports=`cat $PORTSFILE | tr '\n' ','`
 
 # Running nmap on found results.
 
-nmap -iL $TARGETSFILE -p ${ports:0:-1} -sV -Pn
+nmap -iL $TARGETSFILE -p ${ports:0:-1} -sV
 rm $TARGETSFILE $PORTSFILE
